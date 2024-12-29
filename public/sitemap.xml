@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://fin-calcs.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Savings and Budgeting -->
+  <url>
+    <loc>https://fin-calcs.com/savings-goal</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/budget-planner</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/emergency-fund</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/college-savings</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/rainy-day-fund</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Debt Management -->
+  <url>
+    <loc>https://fin-calcs.com/loan-payoff</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/credit-card</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/debt-snowball</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/debt-avalanche</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/debt-to-income</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Income and Taxes -->
+  <url>
+    <loc>https://fin-calcs.com/salary</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/tax-withholding</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/net-income</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/self-employment-tax</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Spending and Lifestyle -->
+  <url>
+    <loc>https://fin-calcs.com/cost-of-living</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/subscription-management</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/vacation-savings</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/entertainment-budget</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/monthly-expense</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Investing and Retirement -->
+  <url>
+    <loc>https://fin-calcs.com/investment</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/retirement</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fin-calcs.com/mortgage</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>

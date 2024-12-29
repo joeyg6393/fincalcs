@@ -1,0 +1,159 @@
+import React, { useState, useCallback } from 'react';
+import { PieChart } from 'lucide-react';
+import { InputField } from '../components/InputField';
+import { ResultCard } from '../components/ResultCard';
+import { Button } from '../components/Button';
+import { calculateAssetAllocation } from '../utils/portfolioCalculators';
+import { AssetAllocationInputs, AssetAllocationResults } from '../types/calculator';
+
+export const AssetAllocationCalculator: React.FC = () => {
+  const [inputs, setInputs] = useState<AssetAllocationInputs>({
+    riskTolerance: 70,
+    investmentHorizon: 20,
+    currentAge: 35,
+    retirementAge: 65,
+    portfolioValue: 100000,
+  });
+
+  const [results, setResults] = useState<AssetAllocationResults>({
+    stocks: 0,
+    bonds: 0,
+    cash: 0,
+    other: 0,
+    recommendations: [],
+  });
+
+  const handleCalculate = useCallback(() => {
+    setResults(calculateAssetAllocation(inputs));
+  }, [inputs]);
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+      <div className="text-center mb-12">
+        <div className="flex justify-center mb-4">
+          <div className="p-3 bg-blue-100 rounded-full">
+            <PieChart className="w-8 h-8 text-blue-600" />
+          </div>
+        </div>
+        <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+          Asset Allocation Calculator
+        </h1>
+        <p className="mt-3 text-xl text-gray-500">
+          Optimize your portfolio allocation
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <div className="lg:col-span-1 bg-white rounded-lg shadow-md p-6">
+          <h2 className="text-lg font-medium text-gray-900 mb-6">
+            Investment Profile
+          </h2>
+          <InputField
+            label="Risk Tolerance"
+            value={inputs.riskTolerance}
+            onChange={(value) =>
+              setInputs((prev) => ({ ...prev, riskTolerance: value }))
+            }
+            min={0}
+            max={100}
+            step={1}
+            suffix="%"
+          />
+          <InputField
+            label="Investment Horizon"
+            value={inputs.investmentHorizon}
+            onChange={(value) =>
+              setInputs((prev) => ({ ...prev, investmentHorizon: value }))
+            }
+            min={1}
+            max={50}
+            step={1}
+            suffix="years"
+          />
+          <InputField
+            label="Current Age"
+            value={inputs.currentAge}
+            onChange={(value) =>
+              setInputs((prev) => ({ ...prev, currentAge: value }))
+            }
+            min={18}
+            max={100}
+            step={1}
+            suffix="years"
+          />
+          <InputField
+            label="Retirement Age"
+            value={inputs.retirementAge}
+            onChange={(value) =>
+              setInputs((prev) => ({ ...prev, retirementAge: value }))
+            }
+            min={inputs.currentAge + 1}
+            max={100}
+            step={1}
+            suffix="years"
+          />
+          <InputField
+            label="Portfolio Value"
+            value={inputs.portfolioValue}
+            onChange={(value) =>
+              setInputs((prev) => ({ ...prev, portfolioValue: value }))
+            }
+            min={0}
+            step={1000}
+            prefix="$"
+          />
+          <div className="mt-6">
+            <Button onClick={handleCalculate}>Calculate Allocation</Button>
+          </div>
+        </div>
+
+        <div className="lg:col-span-2">
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 mb-8">
+            <ResultCard
+              title="Stocks"
+              amount={results.stocks}
+              isCurrency={false}
+              suffix="%"
+              description="Recommended stock allocation"
+            />
+            <ResultCard
+              title="Bonds"
+              amount={results.bonds}
+              isCurrency={false}
+              suffix="%"
+              description="Recommended bond allocation"
+            />
+            <ResultCard
+              title="Cash"
+              amount={results.cash}
+              isCurrency={false}
+              suffix="%"
+              description="Recommended cash allocation"
+            />
+            <ResultCard
+              title="Alternative Investments"
+              amount={results.other}
+              isCurrency={false}
+              suffix="%"
+              description="Other investments"
+            />
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h3 className="text-lg font-medium text-gray-900 mb-4">
+              Investment Recommendations
+            </h3>
+            <div className="space-y-4">
+              {results.recommendations.map((recommendation, index) => (
+                <div key={index} className="flex items-start">
+                  <span className="flex-shrink-0 h-5 w-5 text-blue-500">•</span>
+                  <p className="ml-2 text-gray-600">{recommendation}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
